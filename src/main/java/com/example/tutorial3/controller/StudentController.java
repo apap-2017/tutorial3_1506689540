@@ -49,8 +49,9 @@ public class StudentController {
 	public String viewNPM(@PathVariable Optional<String> npm,Model model) {
 		if (npm.isPresent()) {
 			StudentModel student = studentService.selectStudent(npm.get());
+			if (student==null) return "viewerror";
 			model.addAttribute("student", student);
 			return "view";
-		} return "viewerror";
+		}return "viewerror";
 	}
 }
