@@ -32,4 +32,11 @@ public class StudentController {
 		model.addAttribute("student", student);
 		return "view";
 	}
+
+	@RequestMapping("/student/viewall")
+	public String viewAll(Model model) {
+		List<StudentModel> students = studentService.selectAllStudents();
+		model.addAttribute("students", students);
+		return "viewall";
+	}
 }

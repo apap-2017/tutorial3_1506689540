@@ -6,3 +6,16 @@
 >>> Pesan error muncul, karena pada link diatas tidak diberikan nilai 'gpa' yang diperlukan dalam request parameter, 
 	sedangkan pada request parameter, nilai gpa mwmiliki nilai required true.
 
+3. "localhost:8080/student/add?npm=12345&name=chanek&gpa=3.43" lalu buka "localhost:8080/student/view?npm=12345"
+>>> Akan terbuka halaman ADD.html lalu, saat view dijanlankan menampilkan halaman view.html dengan teks berisikan
+	NPM, Name, dan GPA dari chanek.
+
+4. Ketika membuka "localhost:8080/student/view?npm=12345" sehabis merestart program
+>>> Muncul label error, karena isi dari ArrayList studentService saat itu masih kosong. Jadi tidak ada data yang bisa 
+	ditampilkan. Kenapa arraylist kosong? karena data yang ada pada saat program dijalankan sebelumnya tidak disimpan dimana - mana.
+
+5. "localhost:8080/student/add?npm=12345&name=chanek&gpa=3.43" lalu buka "localhost:8080/student/view?npm=12345"
+>>> Data Chanek muncul dengan garis dibawahnya.
+>>> Setelah menambahkan "localhost:8080/student/add?npm=12373&name=chanada&gpa=3.75" data chanada juga muncul dibawah
+	chanek dengan nomor 2.
+	bukti : h**ps://imgur.com/a/9VrQb
