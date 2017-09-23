@@ -1,6 +1,7 @@
 package com.example.tutorial3.controller;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,5 +39,18 @@ public class StudentController {
 		List<StudentModel> students = studentService.selectAllStudents();
 		model.addAttribute("students", students);
 		return "viewall";
+	}
+
+
+
+	//Latihan view dengan pathvariable
+	// hasil tampilan https://imgur.com/a/Cnr8M
+	@RequestMapping("/student/view/{npm}")
+	public String viewNPM(@PathVariable Optional<String> npm,Model model) {
+		if (npm.isPresent()) {
+			StudentModel student = studentService.selectStudent(npm.get());
+			model.addAttribute("student", student);
+			return "view";
+		} return "viewerror";
 	}
 }
