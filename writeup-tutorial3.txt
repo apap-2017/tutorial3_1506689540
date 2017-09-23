@@ -1,0 +1,8 @@
+
+1. Ketika mengakses "localhost:8080/student/add?npm=12345&name=chanek&gpa=3.43"
+>>> Tidak menampilkan hasil yang error, halaman add.html yang ditampilkan.
+
+2. Ketika mengakses "localhost:8080/student/add?npm=12345&name=chanek"
+>>> Pesan error muncul, karena pada link diatas tidak diberikan nilai 'gpa' yang diperlukan dalam request parameter, 
+	sedangkan pada request parameter, nilai gpa mwmiliki nilai required true.
+

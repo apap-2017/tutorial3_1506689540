@@ -1,0 +1,5 @@
+com/example/tutorial3/model/StudentModel.class
+com/example/tutorial3/service/StudentService.class
+com/example/tutorial3/controller/StudentController.class
+com/example/tutorial3/Tutorial3Application.class
+com/example/tutorial3/service/InMemoryStudentService.class
