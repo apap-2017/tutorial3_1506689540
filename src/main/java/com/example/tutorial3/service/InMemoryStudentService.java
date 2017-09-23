@@ -25,4 +25,8 @@ public class InMemoryStudentService implements StudentService {
 	public void addStudent(StudentModel student){
 		studentList.add(student);
 	}
+
+	public void removeStudent(String npm) {
+		studentList.remove(selectStudent(npm));
+	}
 }

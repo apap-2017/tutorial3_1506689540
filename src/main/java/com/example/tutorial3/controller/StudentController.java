@@ -44,14 +44,24 @@ public class StudentController {
 
 
 	//Latihan view dengan pathvariable
+	//dengan asumsi main success scenario.
 	// hasil tampilan https://imgur.com/a/Cnr8M
 	@RequestMapping("/student/view/{npm}")
 	public String viewNPM(@PathVariable Optional<String> npm,Model model) {
-		if (npm.isPresent()) {
 			StudentModel student = studentService.selectStudent(npm.get());
 			if (student==null) return "viewerror";
 			model.addAttribute("student", student);
 			return "view";
-		} return "viewerror";
+	}
+
+	//Latihan delete studentdengan NPM
+	//dengan asumsi main success scenario.
+	//hasil akhir https://imgur.com/a/P2ftD
+	@RequestMapping("/student/delete/{npm}")
+	public String viewNPM(@PathVariable Optional<String> npm) {
+			StudentModel student = studentService.selectStudent(npm.get());
+			if (student==null) return "deleteerror";
+			studentService.removeStudent(npm.get());
+			return "delete";
 	}
 }
