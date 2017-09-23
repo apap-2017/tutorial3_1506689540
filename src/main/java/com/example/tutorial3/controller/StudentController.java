@@ -52,6 +52,6 @@ public class StudentController {
 			if (student==null) return "viewerror";
 			model.addAttribute("student", student);
 			return "view";
-		}return "viewerror";
+		} return "viewerror";
 	}
 }
