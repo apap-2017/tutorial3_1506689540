@@ -1,3 +1,4 @@
+hasil tampilan: https://imgur.com/a/V2PSC
 
 1. Ketika mengakses "localhost:8080/student/add?npm=12345&name=chanek&gpa=3.43"
 >>> Tidak menampilkan hasil yang error, halaman add.html yang ditampilkan.
@@ -20,3 +21,51 @@
 	chanek dengan nomor 2.
 	bukti ( h**ps://imgur.com/a/9VrQb )
 
+
+------------------------------------------------------------------
+*asumsi pada link selalu ada npm-nya*
+
+
+Method 'SELECT STUDENT'
+
+@RequestMapping("/student/view/{npm}")
+	public String viewNPM(@PathVariable Optional<String> npm,Model model) {
+			StudentModel student = studentService.selectStudent(npm.get());
+			if (student==null) return "viewerror";
+			model.addAttribute("student", student);
+			return "view";
+	}
+
+
+Method 'DELETE STUDENT'
+
+@RequestMapping("/student/delete/{npm}")
+	public String viewNPM(@PathVariable Optional<String> npm) {
+			StudentModel student = studentService.selectStudent(npm.get());
+			if (student==null) return "deleteerror";
+			studentService.removeStudent(npm.get());
+			return "delete";
+	}
+
+Deskripsi: 
+pertama menggunakan method selectStudent untuk  mencari student dengan npm yang diberikan,
+jika tidak ada student yang ditemukan akan membuka laman deleteerror.html,
+jika ada, maka student akan dikeluarkan dari list studentService.
+Hasil bisa dilihat jika kita membuka viewall.
+
+
+--------------------------------------------------------------------------------------
+
+Ringkasan materi yang telah dipelajari:
+
+Pada tutorial ini hal yang saya sadari ialah saya merasa lebih memahami mengenai konsep MVC.
+Sebelumnya MVC pernah dipelajari juga dalam PPW namun saya masih sedikit bingunng dengan maksud model dan servicenya.
+Pemahaman saya saat ini, model adalah objek yang menyimpan informasi mengenai suatu hal,
+dan service berdasarkan penjelasan berguna untuk menghubungkan controller dengan database,
+berhubung saat ini belum menggunakan database fungsi aslinya belum terlalu terlihat tapi sudah cukup jelas.
+
+
+
+Felisitas / 1506689540
+
+*saya masih pake manual karena eclipse error lagi*
